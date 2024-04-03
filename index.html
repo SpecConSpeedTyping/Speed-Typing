@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Typing Speed Test Game</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <input type="text" class="input-field">
+    <div class="content-box">
+      <div class="typing-text">
+        <p></p>
+      </div>
+      <div class="content">
+        <ul class="result-details">
+          <li class="time">
+            <p>Time Left:</p>
+            <span><b>60</b>s</span>
+          </li>
+          <li class="mistake">
+            <p>Mistakes:</p>
+            <span>0</span>
+          </li>
+          <li class="wpm">
+            <p>WPM:</p>
+            <span>0</span>
+          </li>
+          <li class="accuracy">
+            <p>Accuracy:</p>
+            <span>0%</span>
+          </li>
+        </ul>
+        <button id="try-again-btn">Try Again</button>
+        <button id="submit-btn" class="centered-btn" style="display:none;">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/paragraphs.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    document.getElementById("submit-btn").onclick = function() {
+      window.location.href = "file:///C:/Users/Speccon/Downloads/Typing%20Speed%20Test%20Game%20in%20JavaScript/Typing%20Speed%20Test%20Game%20Second%20Page/Speed%20Typing%20Test%20Page.html";
+    };
+  </script>
+</body>
+
+</html>
