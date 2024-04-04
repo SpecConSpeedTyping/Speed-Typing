@@ -68,9 +68,6 @@ function initTyping() {
 
     // Show the Submit button when the timer is done
     submitBtn.style.display = 'block';
-
-    // Save WPM, Accuracy, and Mistakes in sessionStorage
-    saveResults();
   }
 }
 
@@ -82,9 +79,6 @@ function initTimer() {
     wpmTag.innerText = wpm;
   } else {
     clearInterval(timer);
-
-    // Save WPM, Accuracy, and Mistakes in sessionStorage
-    saveResults();
   }
 }
 
@@ -107,16 +101,16 @@ loadParagraph();
 inpField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", resetGame);
 
-// Save WPM, Accuracy, and Mistakes in sessionStorage after the user has finished typing
+// Save WPM and Accuracy in sessionStorage after the user has finished typing
 function saveResults() {
   var wpmValue = parseInt(wpmTag.innerText); // Get the actual WPM value as an integer
   var accuracyValue = parseFloat(accuracyTag.innerText); // Get the actual Accuracy value as a float
 
-  // Calculate Mistakes value based on the mistakes variable in your code
-  var mistakesValue = mistakes;
-
-  // Save WPM, Accuracy, and Mistakes in sessionStorage
+  // Save WPM and Accuracy in sessionStorage
   sessionStorage.setItem("WPM", wpmValue);
   sessionStorage.setItem("Accuracy", accuracyValue);
-  sessionStorage.setItem("Mistakes", mistakesValue);
 }
+
+// Call saveResults when the user clicks the submit button or when needed in your code
+submitBtn.addEventListener("click", saveResults);
+// Or you can call saveResults at any appropriate point in your code where you want to save the results
