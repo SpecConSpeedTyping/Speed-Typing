@@ -30,25 +30,16 @@
     <!-- Add your JavaScript code here -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const wpmDisplay = document.getElementById("wpmDisplay");
-            const accuracyDisplay = document.getElementById("accuracyDisplay");
-            const mistakesDisplay = document.getElementById("mistakesDisplay");
+            const form = document.querySelector('form');
 
-            // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
-            var savedWPM = sessionStorage.getItem("WPM");
-            var savedAccuracy = sessionStorage.getItem("Accuracy");
-            var savedMistakes = sessionStorage.getItem("Mistakes");
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
 
-            // Update the elements on the page with the retrieved score data
-            if (savedWPM !== null && savedAccuracy !== null && savedMistakes !== null) {
-                wpmDisplay.innerText = savedWPM;
-                accuracyDisplay.innerText = savedAccuracy;
-                mistakesDisplay.innerText = savedMistakes;
-                // Set the values of hidden inputs for WPM, Accuracy, and Mistakes
-                document.getElementById("wpm").value = savedWPM;
-                document.getElementById("accuracy").value = savedAccuracy;
-                document.getElementById("mistakes").value = savedMistakes;
-            }
+                // Your existing code to save data to sessionStorage
+
+                // Redirect after form submission
+                window.location.href = 'https://github.com/SpecConSpeedTyping/Speed-Typing/blob/c4fee0d5ef8d83aa6da52a20df2e1cef4ef01ade/Page%203.html';
+            });
         });
     </script>
 </body>
