@@ -26,6 +26,7 @@
             <p>Accuracy: <span id="accuracyDisplay">0%</span></p>
             <p>Mistakes: <span id="mistakesDisplay">0</span></p> <!-- Display Mistakes -->
         </div>
+        <div id="submissionResult"></div> <!-- Display submission result -->
     </div>
 
     <!-- Add your JavaScript code here -->
@@ -36,6 +37,7 @@
             const mistakesDisplay = document.getElementById("mistakesDisplay");
             const emailInput = document.getElementById("email");
             const submitButton = document.getElementById("submitButton");
+            const submissionResult = document.getElementById("submissionResult");
 
             // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
             var savedWPM = sessionStorage.getItem("WPM");
@@ -74,6 +76,29 @@
                 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return regex.test(email);
             }
+
+            // Function to handle form submission result
+            function handleFormSubmissionResult(result) {
+                submissionResult.innerText = JSON.stringify(result);
+                // You can update the page with the submission result as needed
+            }
+
+            // Example AJAX request to handle form submission response
+            // This assumes your Google Apps Script returns a JSON object
+            document.getElementById("scoreForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const formData = new FormData(this);
+                fetch(this.action, {
+                    method: this.method,
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    handleFormSubmissionResult(data);
+                })
+                .catch(error => console.error('Error submitting form:', error));
+            });
         });
     </script>
 </body>
