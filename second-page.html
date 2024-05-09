@@ -89,10 +89,10 @@
             // Function to handle form submission result
             function handleFormSubmissionResult(result) {
                 if (result.result === 'success') {
-                    submissionResult.innerText = "Form submitted successfully!";
+                    submissionResult.innerHTML = '<p>Your Speed Typing Test has been successfully completed. You can close this page!</p><p><a href="https://speccon.co.za/" target="_blank">Visit our website</a></p>';
                     // You can update the page with a success message or redirect the user
                 } else {
-                    submissionResult.innerText = "Form submission failed. Please try again.";
+                    submissionResult.innerText = "Your Speed Styping Test Results failed to submit.";
                     // You can handle the failure case as needed
                 }
             }
