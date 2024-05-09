@@ -9,15 +9,16 @@
 <body>
     <div class="container">
         <h1>Submit your speed typing test score</h1>
-        <form 
+        <form id="scoreForm"
             method="POST"
             action="https://script.google.com/macros/s/AKfycbyVoXx-JkXeJ6sFxZlvODRfvhMShzrYnoon9eCsWYgX1_lH8EOW1bb6wHjApn6jBRF5GA/exec" 
-            ><label for="email">Email:</label>
+            >
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
             <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
             <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitButton">Submit</button>
         </form>
         <div class="score-info">
             <h2>Your Score:</h2>
@@ -30,14 +31,49 @@
     <!-- Add your JavaScript code here -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const button = document.querySelector("button[type='submit']");
+            const wpmDisplay = document.getElementById("wpmDisplay");
+            const accuracyDisplay = document.getElementById("accuracyDisplay");
+            const mistakesDisplay = document.getElementById("mistakesDisplay");
+            const emailInput = document.getElementById("email");
+            const submitButton = document.getElementById("submitButton");
 
-            function handleClick(event) {
-                console.log('Button clicked!');
-                // You can add more code here to handle the button click event
+            // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
+            var savedWPM = sessionStorage.getItem("WPM");
+            var savedAccuracy = sessionStorage.getItem("Accuracy");
+            var savedMistakes = sessionStorage.getItem("Mistakes");
+
+            // Update the elements on the page with the retrieved score data
+            if (savedWPM !== null && savedAccuracy !== null && savedMistakes !== null) {
+                wpmDisplay.innerText = savedWPM;
+                accuracyDisplay.innerText = savedAccuracy;
+                mistakesDisplay.innerText = savedMistakes;
+                // Set the values of hidden inputs for WPM, Accuracy, and Mistakes
+                document.getElementById("wpm").value = savedWPM;
+                document.getElementById("accuracy").value = savedAccuracy;
+                document.getElementById("mistakes").value = savedMistakes;
             }
 
-            button.addEventListener('click', handleClick);
+            // Add event listener to form submission
+            document.getElementById("scoreForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Validate email input
+                if (!validateEmail(emailInput.value)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+
+                // You can add more validation here if needed
+
+                // Proceed with form submission if validation passes
+                this.submit();
+            });
+
+            // Function to validate email format
+            function validateEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
         });
     </script>
 </body>
