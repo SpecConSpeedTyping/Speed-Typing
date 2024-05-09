@@ -30,16 +30,14 @@
     <!-- Add your JavaScript code here -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector('form');
+            const button = document.querySelector("button[type='submit']");
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the form from submitting normally
+            function handleClick(event) {
+                console.log('Button clicked!');
+                // You can add more code here to handle the button click event
+            }
 
-                // Your existing code to save data to sessionStorage
-
-                // Redirect after form submission
-                window.location.href = 'https://github.com/SpecConSpeedTyping/Speed-Typing/blob/c4fee0d5ef8d83aa6da52a20df2e1cef4ef01ade/Page%203.html';
-            });
+            button.addEventListener('click', handleClick);
         });
     </script>
 </body>
