@@ -32,6 +32,12 @@
     <!-- Add your JavaScript code here -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Prevent going back to the first page
+            history.pushState(null, null, location.href); 
+            history.back(); 
+            history.forward(); 
+            window.onpopstate = function () { history.go(1); }; 
+
             const wpmDisplay = document.getElementById("wpmDisplay");
             const accuracyDisplay = document.getElementById("accuracyDisplay");
             const mistakesDisplay = document.getElementById("mistakesDisplay");
@@ -89,7 +95,7 @@
             // Function to handle form submission result
             function handleFormSubmissionResult(result) {
                 if (result.result === 'success') {
-                    submissionResult.innerHTML = '<p><center><h2>Your Speed Typing Test has been successfully submitted!</h2><h3></br>You can close this page or visit our website!</h3><h4><a href="https://speccon.co.za/" target="_blank">SpecCon Website</h4></p>';
+                    submissionResult.innerHTML = '<p><center><h1>Your Speed Typing Test has been successfully submitted!</h1><p></br>You can close this page or visit our website!</p><p><a href="https://speccon.co.za/" target="_blank">SpecCon Website</p></p>';
                     // Hide the submit button
                     submitButton.style.display = 'none';
                     // You can update the page with a success message or redirect the user
