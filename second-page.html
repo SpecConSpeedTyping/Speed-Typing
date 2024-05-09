@@ -68,26 +68,6 @@
                 // You can add more validation here if needed
 
                 // Proceed with form submission if validation passes
-                this.submit();
-            });
-
-            // Function to validate email format
-            function validateEmail(email) {
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return regex.test(email);
-            }
-
-            // Function to handle form submission result
-            function handleFormSubmissionResult(result) {
-                submissionResult.innerText = JSON.stringify(result);
-                // You can update the page with the submission result as needed
-            }
-
-            // Example AJAX request to handle form submission response
-            // This assumes your Google Apps Script returns a JSON object
-            document.getElementById("scoreForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent default form submission
-
                 const formData = new FormData(this);
                 fetch(this.action, {
                     method: this.method,
@@ -99,6 +79,23 @@
                 })
                 .catch(error => console.error('Error submitting form:', error));
             });
+
+            // Function to validate email format
+            function validateEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+
+            // Function to handle form submission result
+            function handleFormSubmissionResult(result) {
+                if (result.result === 'success') {
+                    submissionResult.innerText = "Form submitted successfully!";
+                    // You can update the page with a success message or redirect the user
+                } else {
+                    submissionResult.innerText = "Form submission failed. Please try again.";
+                    // You can handle the failure case as needed
+                }
+            }
         });
     </script>
 </body>
