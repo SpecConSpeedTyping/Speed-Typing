@@ -47,6 +47,12 @@
             const applicationID = document.getElementById("applicationID");
             const submissionResult = document.getElementById("submissionResult");
 
+            // Check if the referrer URL is the expected previous page
+            if (document.referrer.indexOf("index.html") === -1) {
+                // Redirect to the expected previous page
+                window.location.href = "index.html";
+            }
+
             // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
             var savedWPM = sessionStorage.getItem("WPM");
             var savedAccuracy = sessionStorage.getItem("Accuracy");
