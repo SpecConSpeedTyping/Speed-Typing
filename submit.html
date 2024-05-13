@@ -15,10 +15,11 @@
             >
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <input type="applicationid" id="applicationid" name="Application ID" placeholder="Enter your ApplicationID" required>
+            <input type="hidden" id="applicationid" name="Application ID" placeholder="Enter your ApplicationID" required>
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
             <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
             <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
+            <input type="hidden" id="passOrFail" name="AssociatedTag" value=""> <!-- Add hidden input for pass or fail -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
         <div class="score-info">
@@ -69,6 +70,10 @@
                 document.getElementById("wpm").value = savedWPM;
                 document.getElementById("accuracy").value = savedAccuracy;
                 document.getElementById("mistakes").value = savedMistakes;
+
+                // Calculate pass or fail based on WPM
+                const passOrFailValue = savedWPM >= 20 ? "Pass" : "Fail";
+                document.getElementById("passOrFail").value = passOrFailValue;
             }
 
             // Add event listener to form submission
