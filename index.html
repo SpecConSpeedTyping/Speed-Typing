@@ -45,16 +45,19 @@
   <script src="js/paragraphs.js"></script>
   <script src="js/script.js"></script>
 
-  <script>
+<script>
     window.onload = function() {
       document.getElementById("submit-btn").onclick = function() {
         var refererInfo = document.referrer;
         document.getElementById("referer-info").innerText = "Referrer: " + refererInfo;
         document.getElementById("submit-note").style.display = "block";
-        window.location.href = "submit.html";
+        document.getElementById("submit-btn").style.display = "none"; // Hide the submit button
+        setTimeout(function() {
+          window.location.href = "submit.html";
+        }, 2000); // Redirect after 2 seconds (adjust as needed)
       };
     };
-  </script>
+</script>
 </body>
 
 </html>
