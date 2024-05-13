@@ -35,7 +35,7 @@ label {
 }
 
 input[type="email"],
-input[type="ApplicationID"],
+input[type="text"],
 input[type="hidden"] {
     width: 100%;
     padding: 10px;
@@ -46,7 +46,7 @@ input[type="hidden"] {
 }
 
 button[type="submit"],
-input[type="ApplicationID"] {
+input[type="text"] {
     padding: 10px 20px;
     background-color: #12265e;
     color: #fff;
@@ -57,7 +57,7 @@ input[type="ApplicationID"] {
 }
 
 button[type="submit"]:hover,
-input[type="ApplicationID"]:hover {
+input[type="text"]:hover {
     background-color: #ff9c2a;
 }
 
@@ -72,14 +72,14 @@ input[type="ApplicationID"]:hover {
     }
 
     input[type="email"],
-    input[type="ApplicationID"],
+    input[type="text"],
     input[type="hidden"] {
         padding: 8px;
         margin-bottom: 15px;
     }
 
     button[type="submit"],
-    input[type="ApplicationID"] {
+    input[type="text"] {
         padding: 8px 16px;
     }
 }
