@@ -34,7 +34,8 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="email"] {
+input[type="email"],
+input[type="hidden"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -53,15 +54,6 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="ApplicationID"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
 button[type="submit"]:hover {
     background-color: #ff9c2a;
 }
@@ -76,7 +68,8 @@ button[type="submit"]:hover {
         font-size: 40px;
     }
 
-    input[type="email"] {
+    input[type="email"],
+    input[type="hidden"] {
         padding: 8px;
         margin-bottom: 15px;
     }
