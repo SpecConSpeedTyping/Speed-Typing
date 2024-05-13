@@ -88,4 +88,41 @@
 
                 // You can add more validation here if needed
 
-                // Proceed with form
+                // Proceed with form submission if validation passes
+                const formData = new FormData(this);
+                fetch(this.action, {
+                    method: this.method,
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    handleFormSubmissionResult(data);
+                })
+                .catch(error => console.error('Error submitting form:', error));
+            });
+
+            // Function to validate email format
+            function validateEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+
+            // Function to handle form submission result
+            function handleFormSubmissionResult(result) {
+                if (result.result === 'success') {
+                    submissionResult.innerHTML = '<p><center><h1>Your Speed Typing Test has been successfully submitted!</h1><p></br>You can close this page or You will be redirected to our Website after 15 seconds</p><p><a href="https://speccon.co.za/" target="_blank">SpecCon Website</p></p>';
+                    // Hide the submit button
+                    submitButton.style.display = 'none';
+                    // Redirect after 15 seconds
+                    setTimeout(function() {
+                        window.location.href = "https://speccon.co.za/";
+                    }, 15000); // 15 seconds delay
+                } else {
+                    submissionResult.innerText = "Your Speed Styping Test Results failed to submit.";
+                    // You can handle the failure case as needed
+                }
+            }
+        });
+    </script>
+</body>
+</html>
