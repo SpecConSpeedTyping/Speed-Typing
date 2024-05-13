@@ -31,8 +31,13 @@
     </div>
 
     <!-- Add your JavaScript code here -->
-    <script src="submit.js"</script>
     <script>
+        // Disallow going back to the previous page
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+
         document.addEventListener("DOMContentLoaded", function() {
             const wpmDisplay = document.getElementById("wpmDisplay");
             const accuracyDisplay = document.getElementById("accuracyDisplay");
