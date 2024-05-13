@@ -39,6 +39,14 @@
         };
 
         document.addEventListener("DOMContentLoaded", function() {
+            // Check if coming from the previous page
+            const previousPageURL = "https://specconspeedtypingtest.netlify.app/";
+            const referrer = document.referrer;
+            if (referrer !== previousPageURL) {
+                alert("Access denied. Please access this page from the previous page.");
+                window.location.href = previousPageURL;
+            }
+
             const wpmDisplay = document.getElementById("wpmDisplay");
             const accuracyDisplay = document.getElementById("accuracyDisplay");
             const mistakesDisplay = document.getElementById("mistakesDisplay");
@@ -46,12 +54,6 @@
             const submitButton = document.getElementById("submitButton");
             const applicationID = document.getElementById("applicationID");
             const submissionResult = document.getElementById("submissionResult");
-
-            // Check if the referrer URL is the expected previous page
-            if (document.referrer.indexOf("index.html") === -1) {
-                // Redirect to the expected previous page
-                window.location.href = "index.html";
-            }
 
             // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
             var savedWPM = sessionStorage.getItem("WPM");
