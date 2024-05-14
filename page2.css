@@ -37,16 +37,7 @@ label {
 
 input[type="email"],
 input[type="text"],
-input[type="hidden"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-/* New styling for Application ID input */
+input[type="hidden"],
 input#application-id {
     width: 100%;
     padding: 10px;
@@ -54,7 +45,6 @@ input#application-id {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
-    /* Add additional styling as needed */
 }
 
 button[type="submit"],
