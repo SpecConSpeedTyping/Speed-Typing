@@ -54,9 +54,24 @@ input#application-id {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
-    /* Additional styling specific to Application ID input */
     background-color: #fff;
     color: #333;
+}
+
+button[type="submit"],
+input[type="text"] {
+    padding: 10px 20px;
+    background-color: #12265e; /* Original color for the submit button */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+input[type="text"]:hover {
+    background-color: #ff9c2a; /* Hover color for the submit button */
 }
 
 /* Responsive styles */
@@ -75,5 +90,10 @@ input#application-id {
     input#application-id {
         padding: 8px;
         margin-bottom: 15px;
+    }
+
+    button[type="submit"],
+    input[type="text"] {
+        padding: 8px 16px;
     }
 }
