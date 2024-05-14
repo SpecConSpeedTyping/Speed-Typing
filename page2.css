@@ -37,8 +37,7 @@ label {
 
 input[type="email"],
 input[type="text"],
-input[type="hidden"],
-input#application-id {
+input[type="hidden"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -47,20 +46,17 @@ input#application-id {
     box-sizing: border-box;
 }
 
-button[type="submit"],
-input[type="text"] {
-    padding: 10px 20px;
-    background-color: #12265e;
-    color: #fff;
-    border: none;
+/* Styling for Application ID input */
+input#application-id {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover,
-input[type="text"]:hover {
-    background-color: #ff9c2a;
+    box-sizing: border-box;
+    /* Additional styling specific to Application ID input */
+    background-color: #fff;
+    color: #333;
 }
 
 /* Responsive styles */
@@ -79,10 +75,5 @@ input[type="text"]:hover {
     input#application-id {
         padding: 8px;
         margin-bottom: 15px;
-    }
-
-    button[type="submit"],
-    input[type="text"] {
-        padding: 8px 16px;
     }
 }
