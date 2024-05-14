@@ -44,24 +44,21 @@ input[type="hidden"] {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
+    /* Default styles for all input fields */
+    background-color: #fff; /* White background */
+    color: #333; /* Black text color */
 }
 
 /* Styling for Application ID input */
 input#application-id {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background-color: #fff;
-    color: #333;
+    /* Additional styling specific to Application ID input */
+    background-color: #fff; /* White background */
+    color: #333; /* Black text color */
 }
 
-button[type="submit"],
-input[type="text"] {
+button[type="submit"] {
     padding: 10px 20px;
-    background-color: #12265e; /* Original color for the submit button */
+    background-color: #12265e; /* Button background color */
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -69,9 +66,8 @@ input[type="text"] {
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover,
-input[type="text"]:hover {
-    background-color: #ff9c2a; /* Hover color for the submit button */
+button[type="submit"]:hover {
+    background-color: #ff9c2a; /* Hover background color */
 }
 
 /* Responsive styles */
@@ -92,8 +88,7 @@ input[type="text"]:hover {
         margin-bottom: 15px;
     }
 
-    button[type="submit"],
-    input[type="text"] {
+    button[type="submit"] {
         padding: 8px 16px;
     }
 }
