@@ -1,3 +1,4 @@
+/* Import Roboto font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 
 body {
@@ -45,6 +46,17 @@ input[type="hidden"] {
     box-sizing: border-box;
 }
 
+/* New styling for Application ID input */
+input#application-id {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    /* Add additional styling as needed */
+}
+
 button[type="submit"],
 input[type="text"] {
     padding: 10px 20px;
@@ -73,7 +85,8 @@ input[type="text"]:hover {
 
     input[type="email"],
     input[type="text"],
-    input[type="hidden"] {
+    input[type="hidden"],
+    input#application-id {
         padding: 8px;
         margin-bottom: 15px;
     }
