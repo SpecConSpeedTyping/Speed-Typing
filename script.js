@@ -12,61 +12,11 @@ let timer,
   timeLeft = maxTime,
   charIndex = mistakes = isTyping = 0;
 
-// Function to set a cookie
-function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-// Function to get a cookie
-function getCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
-// Function to check if the user can access the feature
-function canAccessFeature() {
-    let accessCount = getCookie("accessCount");
-    let lastAccessDate = getCookie("lastAccessDate");
-    let today = new Date().toISOString().split('T')[0];
-
-    if (lastAccessDate !== today) {
-        // Reset access count if the date has changed
-        accessCount = 0;
-        setCookie("lastAccessDate", today, 1);
-    }
-
-    if (!accessCount) {
-        accessCount = 0;
-    }
-
-    accessCount = parseInt(accessCount);
-
-    if (accessCount < 2) {
-        accessCount++;
-        setCookie("accessCount", accessCount, 1);
-        return true;
-    } else {
-        return false;
-    }
-}
-
 function loadParagraph() {
   const ranIndex = Math.floor(Math.random() * paragraphs.length);
   typingText.innerHTML = "";
   paragraphs[ranIndex].split("").forEach(char => {
-    let span = `<span>${char}</span>`;
+    let span = `<span>${char}</span>`
     typingText.innerHTML += span;
   });
   typingText.querySelectorAll("span")[0].classList.add("active");
@@ -163,12 +113,4 @@ function saveResults() {
 
 // Call saveResults when the user clicks the submit button or when needed in your code
 submitBtn.addEventListener("click", saveResults);
-
-// Limit access to 2 times per day
-if (!canAccessFeature()) {
-    alert("Access denied. You have reached the limit for today.");
-    // Optionally, disable the input field and hide the game elements
-    inpField.disabled = true;
-    tryAgainBtn.style.display = 'none';
-    submitBtn.style.display = 'none';
-}
+// Or you can call saveResults at any appropriate point in your code where you want to save the results
