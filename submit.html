@@ -77,8 +77,14 @@
                 document.getElementById("passOrFail").value = passOrFailValue;
             }
 
-            // Add event listener to form submission
+            // Add event listener to form submission with confirmation dialog
             document.getElementById("scoreForm").addEventListener("submit", function(event) {
+                const isConfirmed = confirm("Are you sure you want to submit the form?");
+                if (!isConfirmed) {
+                    event.preventDefault();
+                    return;
+                }
+                
                 event.preventDefault(); // Prevent default form submission
 
                 // Validate email input
