@@ -38,12 +38,11 @@
 
     <!-- Add your JavaScript code here -->
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <script type="text/javascript"> 
-        window.history.forward(); 
-        function noBack() { 
-            window.history.forward(); 
-        } 
-    </script>
+    <script>
+   function stopBack() {
+      window.history.go(1);
+   }
+</script> 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Check if coming from the previous page
