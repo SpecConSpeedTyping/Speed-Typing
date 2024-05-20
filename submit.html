@@ -17,7 +17,7 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
             <label for="applicationid">Application ID:</label>
-            <input type="text" id="applicationid" name="ApplicationID" placeholder="Enter your Application ID" required>
+            <input type="text" id="applicationid" name="ApplicationID" placeholder="Enter your Application ID" pattern="ZR_\d+_APP" required>
             <label for="SAIDNumber">SA ID Number:</label>
             <input type="text" id="SAIDNumber" name="SAIDNumber" placeholder="Enter your valid SA ID Number" maxlength="13" pattern="\d{13}" required>
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
@@ -57,7 +57,7 @@
             const mistakesDisplay = document.getElementById("mistakesDisplay");
             const emailInput = document.getElementById("email");
             const submitButton = document.getElementById("submitButton");
-            const applicationID = document.getElementById("applicationID");
+            const applicationID = document.getElementById("applicationid");
             const submissionResult = document.getElementById("submissionResult");
             const saidNumberInput = document.getElementById("SAIDNumber");
 
@@ -103,7 +103,11 @@
                     return;
                 }
 
-                // You can add more validation here if needed
+                // Validate Application ID input
+                if (!validateApplicationID(applicationID.value)) {
+                    alert("Please enter a valid Application ID in the format ZR_UniqueNumber_APP.");
+                    return;
+                }
 
                 // Proceed with form submission if validation passes
                 const formData = new FormData(this);
@@ -128,6 +132,12 @@
             function validateSAIDNumber(saidNumber) {
                 const regex = /^\d{13}$/;
                 return regex.test(saidNumber);
+            }
+
+            // Function to validate Application ID format
+            function validateApplicationID(applicationID) {
+                const regex = /^ZR_\d+_APP$/;
+                return regex.test(applicationID);
             }
 
             // Function to handle form submission result
