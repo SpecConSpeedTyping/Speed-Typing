@@ -85,6 +85,13 @@
                     return;
                 }
 
+                // Validate CAPTCHA
+                if (document.querySelector(".h-captcha iframe").src.indexOf('completed') === -1) {
+                    alert("Please complete the CAPTCHA before submitting.");
+                    event.preventDefault();
+                    return;
+                }
+
                 event.preventDefault(); // Prevent default form submission
 
                 // Validate email input
@@ -153,10 +160,12 @@
             }
         });
 
-        // Disallow going back to the previous page
-        window.history.replaceState(null, null, window.location.href);
+        // Prevent back navigation
+        history.pushState(null, null, location.href);
+        history.back();
+        history.forward();
         window.onpopstate = function () {
-            window.history.replaceState(null, null, window.location.href);
+            history.go(1);
         };
     </script>
 </body>
