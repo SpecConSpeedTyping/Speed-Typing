@@ -89,13 +89,6 @@
           return;
         }
 
-        // Validate CAPTCHA
-        if (document.querySelector(".h-captcha iframe").src.indexOf('completed') === -1) {
-          alert("Please complete the CAPTCHA before submitting.");
-          event.preventDefault();
-          return;
-        }
-
         event.preventDefault(); // Prevent default form submission
 
         // Validate email input
