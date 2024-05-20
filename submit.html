@@ -19,7 +19,7 @@
             <label for="applicationid">Application ID:</label>
             <input type="text" id="applicationid" name="ApplicationID" placeholder="Enter your Application ID" required>
             <label for="SAIDNumber">SA ID Number:</label>
-            <input type="text" id="SAIDNumber" name="SAIDNumber" placeholder="Enter your valid SA ID Number" maxlength="13" required>
+            <input type="text" id="SAIDNumber" name="SAIDNumber" placeholder="Enter your valid SA ID Number" maxlength="13" pattern="\d{13}" required>
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
             <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
             <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
@@ -102,6 +102,8 @@
                     alert("Please enter a valid 13-digit SA ID Number.");
                     return;
                 }
+
+                // You can add more validation here if needed
 
                 // Proceed with form submission if validation passes
                 const formData = new FormData(this);
