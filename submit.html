@@ -23,7 +23,8 @@
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
             <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
             <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
-            <input type="hidden" id="passOrFail" name="AssociatedTag" value=""> <!-- Add hidden input for pass or fail -->
+            <input type="hidden" id="passOrFail" name="AssociatedTag" value="">
+            <div class="h-captcha" data-sitekey="acf7d5c1-6785-42bf-a30a-63e686aaea9d"></div><!-- Add hidden input for pass or fail -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
         <div class="score-info">
@@ -36,6 +37,7 @@
     </div>
 
     <!-- Add your JavaScript code here -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Check if coming from the previous page
