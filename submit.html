@@ -16,8 +16,10 @@
             >
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="applicationid">Application ID:</label>
             <input type="text" id="applicationid" name="ApplicationID" placeholder="Enter your Application ID" required>
-            <input type="text" id="SAIDNumber" name="SAIDNumber" placeholder="Enter your valid SAIDNumber" required>
+            <label for="SAIDNumber">SA ID Number:</label>
+            <input type="text" id="SAIDNumber" name="SAIDNumber" placeholder="Enter your valid SA ID Number" maxlength="13" pattern="\d{13}" required>
             <input type="hidden" id="wpm" name="wpm" value=""> <!-- Add hidden input for WPM -->
             <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
             <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
@@ -57,6 +59,7 @@
             const submitButton = document.getElementById("submitButton");
             const applicationID = document.getElementById("applicationID");
             const submissionResult = document.getElementById("submissionResult");
+            const saidNumberInput = document.getElementById("SAIDNumber");
 
             // Retrieve saved WPM, Accuracy, and Mistakes from sessionStorage
             var savedWPM = sessionStorage.getItem("WPM");
@@ -85,12 +88,18 @@
                     event.preventDefault();
                     return;
                 }
-                
+
                 event.preventDefault(); // Prevent default form submission
 
                 // Validate email input
                 if (!validateEmail(emailInput.value)) {
                     alert("Please enter a valid email address.");
+                    return;
+                }
+
+                // Validate SA ID Number input
+                if (!validateSAIDNumber(saidNumberInput.value)) {
+                    alert("Please enter a valid 13-digit SA ID Number.");
                     return;
                 }
 
@@ -115,6 +124,12 @@
                 return regex.test(email);
             }
 
+            // Function to validate SA ID Number format
+            function validateSAIDNumber(saidNumber) {
+                const regex = /^\d{13}$/;
+                return regex.test(saidNumber);
+            }
+
             // Function to handle form submission result
             function handleFormSubmissionResult(result) {
                 if (result.result === 'success') {
@@ -126,7 +141,7 @@
                         window.location.href = "https://speccon.co.za/";
                     }, 15000); // 15 seconds delay
                 } else {
-                    submissionResult.innerText = "Your Speed Styping Test Results failed to submit.";
+                    submissionResult.innerText = "Your Speed Typing Test Results failed to submit.";
                     // You can handle the failure case as needed
                 }
             }
