@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="thank_you.css"> <!-- Link your CSS file here -->
 </head>
 <body>
-    Device.StartTimer(TimeSpan.FromMilliseconds(5000), () =>
+    <script>Device.StartTimer(TimeSpan.FromMilliseconds(5000), () =>
         {
            Navigation.PushAsync(new PageB());
            return false;
-        });
+        });</script>
     <div class="container">
         <h1>Thank You!</h1>
         <p>Your speed typing test score has been submitted successfully.</p>
