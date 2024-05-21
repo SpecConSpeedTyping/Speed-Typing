@@ -143,13 +143,13 @@
       // Function to handle form submission result
       function handleFormSubmissionResult(result) {
         if (result.result === 'success') {
-          submissionResult.innerHTML = '<p><center><h1>Your Speed Typing Test has been successfully submitted!</h1><p></br>You can close this page or you will be redirected to our website after 15 seconds</p><p><a href="https://speccon.co.za/" target="_blank">SpecCon Website</p></p>';
+          submissionResult.innerHTML = '<p><center><h1>" "</p></p>';
           // Hide the submit button
           submitButton.style.display = 'none';
           // Redirect after 15 seconds
           setTimeout(function() {
             window.location.href = "thankyou.html";
-          }, 15000); // 15 seconds delay
+          }, 100); // 15 seconds delay
         } else {
           submissionResult.innerText = "Your Speed Typing Test Results failed to submit.";
           // You can handle the failure case as needed
