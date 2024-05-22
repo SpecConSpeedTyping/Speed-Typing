@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
   <div class="wrapper">
     <input type="text" class="input-field">
@@ -15,7 +16,9 @@
         <p></p>
       </div>
       <div class="content">
-        </br><h3> Please note, once you submit your results, you will not be permitted to retake the test.</h3></br>
+        <br>
+        <h3>Please note, once you submit your results, you will not be permitted to retake the test.</h3>
+        <br>
         <ul class="result-details">
           <li class="time">
             <p>Time Left:</p>
@@ -36,7 +39,6 @@
         </ul>
         <button id="try-again-btn">Try Again</button>
         <button id="submit-btn" class="centered-btn" style="display:none;">Submit</button>
-       <!-- This paragraph will display the Referer info -->
       </div>
     </div>
   </div>
@@ -46,6 +48,14 @@
 
   <script>
     window.onload = function() {
+      let email = prompt("Please enter your email:");
+      if (email) {
+        sessionStorage.setItem("userEmail", email);
+      } else {
+        alert("Email is required.");
+        window.location.reload();
+      }
+
       document.getElementById("submit-btn").onclick = function() {
         window.location.href = "submit.html";
       };
