@@ -17,23 +17,22 @@
             const previousPageURL = "https://specconspeedtypingtest.netlify.app/submit.html";
             const referrer = document.referrer;
             if (referrer !== previousPageURL) {
-                alert("Access denied. Please complete your speed typing test before proceeding with this page");
+                alert("Access denied. You have not completed your speed typing test");
                 window.location.href = previousPageURL;
             }
 
             // Redirect to home page after 5 seconds
             setTimeout(function() {
                 window.location.href = "https://speccon.co.za/";
-            }, 5000); // 5000 milliseconds = 5 seconds
+            }, 15000); // 5000 milliseconds = 5 seconds
         });
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Thank You!</h1>
-        <p>Your speed typing test score has been submitted successfully.</p>
+        <h1>Your Speed Typing Test Score has been successfully submitted.</h1>
+        <h2>You can close this page now or you will be redirected to our website in 15 seconds</h2>
         <p>We appreciate your participation.</p>
-        <a href="https://speccon.co.za/">Back to Home</a> <!-- Replace "index.html" with your home page URL -->
     </div>
 </body>
 </html>
