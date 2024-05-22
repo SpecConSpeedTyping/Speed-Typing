@@ -24,7 +24,7 @@
       <input type="hidden" id="accuracy" name="accuracy" value=""> <!-- Add hidden input for Accuracy -->
       <input type="hidden" id="mistakes" name="mistakes" value=""> <!-- Add hidden input for Mistakes -->
       <input type="hidden" id="passOrFail" name="AssociatedTag" value=""><!-- Add hidden input for pass or fail -->
-      <button type="submit" id="submitButton">Submit</button
+      <button type="submit" id="submitButton">Submit</button>
     </form>
     <div class="score-info">
       <h2>Your Score:</h2>
@@ -35,14 +35,13 @@
     <div id="submissionResult"></div> <!-- Display submission result -->
   </div>
 
-  <!-- Add your JavaScript code here -->
   <script>
      // Disallow going back to the previous page
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
-    
+
     document.addEventListener("DOMContentLoaded", function() {
       // Check if coming from the previous page
       const previousPageURL = "https://specconspeedtypingtest.netlify.app/";
@@ -66,6 +65,9 @@
       var savedAccuracy = sessionStorage.getItem("Accuracy");
       var savedMistakes = sessionStorage.getItem("Mistakes");
 
+      // Retrieve the stored email from sessionStorage
+      var storedEmail = sessionStorage.getItem("userEmail");
+
       // Update the elements on the page with the retrieved score data
       if (savedWPM !== null && savedAccuracy !== null && savedMistakes !== null) {
         wpmDisplay.innerText = savedWPM;
@@ -83,12 +85,6 @@
 
       // Add event listener to form submission with confirmation dialog
       document.getElementById("scoreForm").addEventListener("submit", function(event) {
-        const isConfirmed = confirm("Are you sure you want to submit the form?");
-        if (!isConfirmed) {
-          event.preventDefault();
-          return;
-        }
-
         event.preventDefault(); // Prevent default form submission
 
         // Validate email input
@@ -106,6 +102,18 @@
         // Validate Application ID input
         if (!validateApplicationID(applicationID.value)) {
           alert("Please enter a valid Application ID in the format ZR_UniqueNumber_APP.");
+          return;
+        }
+
+        // Confirm email matches stored email
+        if (emailInput.value !== storedEmail) {
+          alert("Emails do not match. Please enter the same email you used on the previous page.");
+          return;
+        }
+
+        // Confirm submission
+        const isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (!isConfirmed) {
           return;
         }
 
