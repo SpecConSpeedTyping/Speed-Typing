@@ -114,7 +114,6 @@ function saveResults() {
 // Call saveResults when the user clicks the submit button or when needed in your code
 submitBtn.addEventListener("click", saveResults);
 // Or you can call saveResults at any appropriate point in your code where you want to save the results
- <script src="https://www.google.com/recaptcha/api.js"></script>
  <script>
    function onSubmit(token) {
      document.getElementById("demo-form").submit();
